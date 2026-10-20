@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // Ajuste o caminho conforme a localização do seu arquivo de conexão
-const db = require('../database/db');
+const db = require('../db/db');
 
 // GET: Listar todas as aulas
 router.get('/', async (req, res) => {
@@ -235,3 +235,4 @@ router.delete('/:id', async (req, res) => {
 });
 
 module.exports = router;
+
