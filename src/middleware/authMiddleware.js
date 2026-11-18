@@ -1,7 +1,9 @@
-const jwt = require('jsonwebtoken');
-require('dotenv').config({ path: './backend/.env' });
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
-exports.verificarToken = (req, res, next) => {
+dotenv.config({ path: './backend/.env' });
+
+export const verificarToken = (req, res, next) => {
     const token = req.headers['authorization'];
     if (!token) return res.status(403).json({ erro: "Nenhum token fornecido." });
 
@@ -14,3 +16,5 @@ exports.verificarToken = (req, res, next) => {
         next();
     });
 };
+
+export default { verificarToken };

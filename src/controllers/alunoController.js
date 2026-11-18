@@ -3,20 +3,20 @@ import Joi from 'joi';
  
 export const alunoCreateSchema = Joi.object({
     idAluno: Joi.string().required().max(20),
-    nome: Joi.string().required.max(100),
+    nome: Joi.string().required().max(100),
     email: Joi.string().email().required().max(50),
-    telefone: Joi.string().required.max(20),
+    telefone: Joi.string().required().max(20),
     cpf: Joi.string().length(11).required(),
-    dataNascimento: Joi.date().required().max(6)
-})
+    dataNascimento: Joi.date().required()
+});
  
 export const alunoUpdateSchema = Joi.object({
     idAluno: Joi.string().required().max(20),
-    nome: Joi.string().required.max(100),
+    nome: Joi.string().required().max(100),
     email: Joi.string().email().required().max(50),
-    telefone: Joi.string().required.max(20),
+    telefone: Joi.string().required().max(20),
     cpf: Joi.string().length(11).required(),
-    dataNascimento: Joi.date().required().max(6)
+    dataNascimento: Joi.date().required()
 }).min(1);
  
 export const listarAluno = async (req, res) => {
